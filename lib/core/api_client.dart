@@ -9,7 +9,7 @@ class ApiClient {
         receiveTimeout: const Duration(seconds: 15),
         headers: {
           'Authorization':
-              '4tL8cAJsHMYjdE9fjBmGXuVBolbojwp4WqoS1QcfrG1CevXXAwbn1A8O',
+              '',//add your own API key 
         },
       ),
     );

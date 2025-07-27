@@ -8,7 +8,7 @@ class PhotoBloc extends Bloc<PhotoEvent, PhotoState> {
 
   int _currentPage = 1;
   final int _perPage = 20;
-  bool _isFetching = false; // prevents duplicate calls
+  bool _isFetching = false; 
 
   PhotoBloc(this.repository) : super(PhotoInitial()) {
     on<LoadPhotos>(_onLoadPhotos);
@@ -40,7 +40,7 @@ class PhotoBloc extends Bloc<PhotoEvent, PhotoState> {
     if (_isFetching || state is! PhotoLoaded) return;
 
     final currentState = state as PhotoLoaded;
-    if (!currentState.hasMore) return; // No more pages
+    if (!currentState.hasMore) return; 
 
     emit(currentState.copyWith(isLoadingMore: true));
     _isFetching = true;
@@ -58,7 +58,6 @@ class PhotoBloc extends Bloc<PhotoEvent, PhotoState> {
         PhotoLoaded(photos: allPhotos, hasMore: morePhotos.length == _perPage),
       );
     } catch (e) {
-      // If pagination fails, we keep the old photos
       emit(currentState.copyWith(isLoadingMore: false));
     } finally {
       _isFetching = false;

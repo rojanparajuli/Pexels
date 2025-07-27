@@ -696,7 +696,6 @@ class _EnhancedHomePageState extends State<EnhancedHomePage>
   }
 }
 
-// Full screen viewer would be the same as in the previous artifact
 class _FullScreenPhotoViewer extends StatelessWidget {
   final Photo photo;
   const _FullScreenPhotoViewer({required this.photo});
